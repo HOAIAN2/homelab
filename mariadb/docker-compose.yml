@@ -1,0 +1,12 @@
+services:
+  mariadb:
+    image: mariadb:lts
+    container_name: mariadb-lts
+    environment:
+      MYSQL_ROOT_PASSWORD: "${ROOT_PASSWORD}"
+    ports:
+      - "3306:3306"
+    volumes:
+      - "${MARIADB_DATA}:/var/lib/mysql"
+      - ~/Code/mysql-backup:/mysql-backup
+    network_mode: bridge
