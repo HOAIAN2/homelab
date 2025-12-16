@@ -1,0 +1,13 @@
+services:
+  alpine-vsftpd:
+    build: .
+    image: hoaian/alpine-vsftpd
+    container_name: alpine-vsftpd
+    restart: unless-stopped
+    environment:
+      USERS: "$USERS"
+      ANONYMOUS_ENABLE: "$ANONYMOUS_ENABLE"
+      PASSIVE_MIN_PORT: "$PASSIVE_MIN_PORT"
+      PASSIVE_MAX_PORT: "$PASSIVE_MAX_PORT"
+    volumes:
+      - "$FTP_DATA_DIR:/home"
