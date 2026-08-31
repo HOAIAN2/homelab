@@ -3,6 +3,8 @@ services:
     image: postgres:18-trixie
     container_name: postgres
     restart: always
+    mem_limit: 1024m
+    memswap_limit: 1024m
     volumes:
       - data:/var/lib/postgresql
       - "${BACKUP_TOOL}:/postgresql-backup"
